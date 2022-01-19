@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+
+<mapper namespace="com.myproject.mapper.EmployeeMapper">
+
+<select id="queryAll" resultType="Employee">
+    select *from mybatis.employee;
+</select>
+
+
+    <select id="queryById" resultType="Employee" parameterType="int">
+        select *from mybatis.employee where id=#{id};
+    </select>
+
+    <insert id="saveEmp"  parameterType="Employee" >
+        insert into mybatis.employee(lastName, email, gender, birth, department) VALUE
+        (#{lastName},#{email},#{gender},#{birth},#{department});
+    </insert>
+
+    <delete id="deleteEmp" parameterType="int">
+        delete from mybatis.employee where id=#{id};
+    </delete>
+
+</mapper>
